@@ -7,7 +7,7 @@ for i in range(n):
     command = sys.stdin.readline().split()
 
     if command[0] == "push":
-        nums.insert(0, command[1])
+        nums.append(command[1])
     if command[0] == "pop":
         if len(nums) == 0:
             print(-1)
@@ -20,17 +20,10 @@ for i in range(n):
             print(1)
         else:
             print(0)
-    if command[0] == "front":
+    if command[0] == "top":
         if len(nums) == 0:
             print(-1)
         else:
             num = nums.pop()
             print(num)
             nums.append(num)
-    if command[0] == "back":
-        if len(nums) == 0:
-            print(-1)
-        else:
-            num = nums.popleft()
-            print(num)
-            nums.appendleft(num)

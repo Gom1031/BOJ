@@ -6,7 +6,6 @@ n = int(input())
 for i in range(n):
     queue.append(i+1)
 
-
 while True:
     if n == 1:
         print(*queue)

@@ -46,5 +46,4 @@ for i in range(n-7):
         # count숫자를 리스트에 추가
         count_list.append(count)
 
-print(count_list)
 print(min(count_list))

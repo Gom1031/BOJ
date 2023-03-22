@@ -37,4 +37,3 @@ for i in range(r):
         else:
             num = nums.pop(0)
             nums.append(num)
-

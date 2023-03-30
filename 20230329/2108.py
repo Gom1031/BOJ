@@ -1,9 +1,10 @@
+import sys
 from collections import Counter
 
-n = int(input())
+n = int(sys.stdin.readline())
 nums = []
 for i in range(n):
-    nums.append(int(input()))
+    nums.append(int(sys.stdin.readline()))
 
 # 산술평균 구하기
 sum = 0
@@ -23,7 +24,6 @@ if len(sorted_items) > 1 and sorted_items[0][1] == sorted_items[1][1]:
     print(sorted_items[1][0])
 else:
     print(sorted_items[0][0])
-
 
 # 범위를 출력
 print(max(nums)-min(nums))

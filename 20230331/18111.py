@@ -30,6 +30,5 @@ if count >= 0:
 for i in sum:
     # 땅파기
     count2 += (i - min(sum))
-    print(count2)
 time = count2 * 2
 print(time, min(sum))    

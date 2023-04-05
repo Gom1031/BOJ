@@ -1,7 +1,5 @@
-# r뒤집기 d버리기
-
 import sys
-
+from collections import deque
 
 t = int(sys.stdin.readline())
 for _ in range(t):
@@ -14,20 +12,31 @@ for _ in range(t):
     # 리스트 받아오기
     input_string = sys.stdin.readline().rstrip()
     if input_string == '[]':
-        input_list = []
+        input_list = deque()
     else:
-        input_list = list(map(int, input_string.strip("[]").split(",")))
+        input_list = deque(map(int, input_string.strip("[]").split(",")))
+
+    # 반대로 직접 돌리지 않고 reverse변수를 만들어 활용
+
+    reverse = False
+    error = False
 
     for i in p:
         if i == 'R':
-            input_list.reverse()
-        if i == 'D':
-            if len(input_list) == 0:
-                input_list.append('error')
+            reverse = not reverse
+        elif i == 'D':
+            if not input_list:
+                error = True
                 break
             else:
-                input_list.pop(0)
-    if isinstance(input_list[0], str):
-        print(*input_list)
+                if reverse:
+                    input_list.pop()
+                else:
+                    input_list.popleft()
+
+    if error:
+        print("error")
     else:
+        if reverse:
+            input_list.reverse()
         print("[" + ",".join(map(str, input_list)) + "]")

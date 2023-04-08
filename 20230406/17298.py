@@ -9,15 +9,14 @@ nums = list(map(int, sys.stdin.readline().split()))
 stack = []
 result = [-1] * n
 
-print(result)
 
-# for i in range(n):
-#     while stack and nums[stack[-1]] < nums[i]:
-#         idx = stack.pop()
-#         result[idx] = nums[i]
-#     stack.append(i)
+for i in range(n):
+    while stack and nums[stack[-1]] < nums[i]:
+        idx = stack.pop()
+        result[idx] = nums[i]
+    stack.append(i)
 
-# print(*result)
+print(*result)
 
 
 # for _ in range(n-1):

@@ -1,7 +1,3 @@
-# n종류 동전 많이
-# 합을 k로 만드려고 한다
-# 필요한 동전 개수의 최솟값을 구하는 프로그램
-
 import sys
 
 n, k = map(int, sys.stdin.readline().split())

@@ -1,2 +1,2 @@
-graph = {i: set() for i in range(1, 10)}
-print(graph)
+nums = [1,2,3,4,5,6]
+print(nums.pop(index.min(nums)))

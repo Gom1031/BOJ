@@ -23,7 +23,7 @@ for _ in range(m):
     graph[a].add(b)
     graph[b].add(a)
 
-print(graph)
+# print(graph)
 
-# infected = bfs(graph, 1)
-# print(len(infected) - 1)  # 1번 컴퓨터는 제외하고 개수를 출력
+infected = bfs(graph, 1)
+print(len(infected) - 1)  # 1번 컴퓨터는 제외하고 개수를 출력

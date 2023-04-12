@@ -1,4 +1,2 @@
-test = [1, 2, 3]
-print(test.pop(test.index(max(test))))
-
-print(max(test))
+graph = {i: set() for i in range(1, 10)}
+print(graph)

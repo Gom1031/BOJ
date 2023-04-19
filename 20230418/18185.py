@@ -8,17 +8,17 @@ for i in range(len(a)):
     nums[i] = a[i]
 count = 0
 
-for i in range(1000):
+for i in range(n):
     if nums[i+1] > nums[i+2]:
         temp = min(nums[i], nums[i+1]-nums[i+2])
         nums[i] -= temp; nums[i+1] -= temp;
         count += temp * 5
 
-        temp2 = min(nums[i], nums[i+1], nums[i+2])
+        temp2 = min(nums[i], min(nums[i+1], nums[i+2]))
         nums[i] -= temp2; nums[i+1] -= temp2; nums[i+2] -= temp2;
         count += temp2 * 7        
     else:
-        temp2 = min(nums[i], nums[i+1], nums[i+2])
+        temp2 = min(nums[i], min(nums[i+1], nums[i+2]))
         nums[i] -= temp2; nums[i+1] -= temp2; nums[i+2] -= temp2;
         count += temp2 * 7
 

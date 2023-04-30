@@ -15,14 +15,14 @@ for _ in range(n):
 
 team = []
 
-print(count)
+# print(count) 
 
 
 # for루프에서는 dic자료형을 반복할수없음
-# .items 메서드를 사용하여 dic자료형을 반복하도록 만듬
-# 
-for letter, count in count.items():
-    if count >= 5:
+# .items 메서드를 사용하여 dic자료형을 반복하도록 만듦
+# letter, cnt 변수에 for 루프로 값 할당
+for letter, cnt in count.items():
+    if cnt >= 5:
         team.append(letter)
 
 if team:

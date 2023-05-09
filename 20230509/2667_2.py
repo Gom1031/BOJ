@@ -28,7 +28,6 @@ def bfs(y, x):
 
     return count
 
-
 for i in range(n):
     for j in range(n):
         if graph[i][j] == 1:

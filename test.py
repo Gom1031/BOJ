@@ -1,14 +1,59 @@
-dic = {"A+": 4.3, "A0": 4.0, "A-": 3.7, "B+": 3.3, "B0": 3.0, "B-": 2.7, "C+": 2.3, "C0": 2.0, "C-": 1.7, "D+": 1.3, "D0": 1.0, "D-": 0.7, "F": 0.0}
-n = int(input()) #과목 수
-grade = []
-score = []
+import random
 
-for i in range(1, n+1):
-    sub_scr_grd = input().split()
-    score.append(int(sub_scr_grd[1]))
-    grade.append(dic[sub_scr_grd[2]])
-# print(score)
-# print(grade)
-for i in range(0, n):
-    result = score[i]*grade[i]
-    print(result)
+row, col = (4, 4) #row = 세로 / col = 가로
+puzzle = [] #광역 변수 (밖에 있기 때문에 함수에서 사용할 수 있음)
+
+def rand_puzzle():
+    arr= [i for i in range(row*col)]
+    arr= random.sample(arr, row*col)
+
+    for i in range(0, len(arr), col):
+        puzzle.append(arr[i:i+col])
+
+def prt_puzzle():
+    for i in range(row):
+        for j in range(col):
+            if puzzle[i][j] != 0:
+                print("%4s" %puzzle[i][j], end='')
+            else:
+                print("%4s" %'', end='')
+        print() #들여쓰기
+
+def find_zero():
+    for i in range(row):
+        for j in range(col):
+            if puzzle[i][j] == 0:
+                return i, j #0의 행, 열 값
+def left(r, c):
+    if c-1 >= 0:
+            puzzle[r][c], puzzle[r][c+1] = puzzle[r][c+1], puzzle[r][c]
+def right(r, c):
+    if c-1 >= 0:
+            puzzle[r][c], puzzle[r][c-1] = puzzle[r][c-1], puzzle[r][c]
+def up(r, c):
+    if r+1 < row:
+            puzzle[r][c], puzzle[r+1][c] = puzzle[r+1][c], puzzle[r][c]
+def down(r, c):
+    if r-1 >= 0:
+            puzzle[r][c], puzzle[r-1][c] = puzzle[r-1][c], puzzle[r][c]
+
+rand_puzzle()
+prt_puzzle()
+while True:
+    r, c = find_zero()
+    key = input("a(좌)w(상)s(하) d(우) > ")
+    if key == "a": #Left
+        left(r, c)
+    elif key == "d": #Right
+        right(r, c)
+    elif key == "w":#Up
+        up(r, c)
+    elif key == "s":#Down
+        down(r, c)
+    elif key == "0":
+        print("End")
+        break
+    else:
+        print("??잘못된키값입니다!")
+    prt_puzzle()
+# print(prt_puzzle)

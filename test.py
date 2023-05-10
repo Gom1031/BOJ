@@ -1,5 +1,4 @@
-from collections import deque
-
-queue = deque()
-queue.append(1)
-print(queue)
+visited = [[False] * (10)]
+visited2 = [False * 10]
+print(visited)
+print(visited2)

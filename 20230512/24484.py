@@ -9,17 +9,17 @@ for _ in range(m):
     graph[b].append(a)
 
 for i in graph:
-    i.sort()
+    i.sort(reverse=True)
 
 depth = [-1] * (n+1)
 visited = [0] * (n+1)
-count = 1
 
 depth[r] = 0
+count = 1
 visited[r] += count
 
 def dfs(v):
-    global visited, count
+    global depth, visited, count
     for i in graph[v]:
         if depth[i] < 0 or visited[i] < 1:
             count += 1

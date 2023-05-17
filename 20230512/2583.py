@@ -8,10 +8,14 @@ import sys
 
 m, n, k = map(int, sys.stdin.readline().split())
 
+graph = [[0 for _ in range(n)] for _ in range(m)]
+visited = graph[:]
+
 for _ in range(k):
     x1, y1, x2, y2 = map(int, sys.stdin.readline().split())
+    
 
-graph = [[[0] for _ in range(n)] for _ in range(m)]
-visited = []
 
 def bfs():
+    dx = [-1, 1, 0, 0]
+    dy = [0, 0, -1, 1]
